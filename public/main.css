@@ -1,0 +1,106 @@
+:root{
+    --mainCharcoal: #264653;
+    --mainPersianGreen:#2A9D8F;
+    --mainOrangeYellow:#E9C46A;
+    --mainSandyBrown:#F4A261;
+    --mainBurntSiena:#E76F51;
+    --mainWhite: #fff;
+    --mainDark:#242325;
+}
+body{
+    background-color: var(--mainCharcoal);
+}
+
+.box{
+    width: 80%;
+    height: 250px;
+    background-color: var(--mainPersianGreen);
+    margin-top: 15%;
+    border: var(--mainOrangeYellow) solid 4px;
+}
+.btn-key{
+    width : 6rem;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    height: 3.5rem;
+    /* background-color: var(--mainSandyBrown); */
+    background-color: var(--mainCharcoal);
+    
+}
+#btn-container{
+    margin-top: 2rem;
+}
+.btn-power{
+    margin-top: 4rem;
+    margin-left: 10px;
+}
+.btn-text{
+    width: 10rem;
+    height: 2.8rem;
+    background-color:var(--mainCharcoal) ;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+   
+}
+.final__toggle-1 {
+    font-family: Helvetica, Arial, sans-serif;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 15px 0 0;
+  }
+
+  .final__toggle-1__input {
+    display: none;
+  }
+  .final__toggle-1__button {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    /* background-color: #f2395a; */
+    background-color: var(--mainOrangeYellow);
+    /* border:1px solid #f2395a; */
+    border:1px solid var(--mainOrangeYellow);
+    color: #ffffff;
+    width: 80px;
+    height: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .final__toggle-1__button:before {
+    position: absolute;
+    top: 6px;
+    left: 40px;
+    right: auto;
+    display: inline-block;
+    height: 20px;
+    padding: 0 3px;
+    background-color: #ffffff;
+    /* color: #f2395a; */
+    color: var(--mainOrangeYellow);
+    content: "off";
+    transition: all 0.3s ease;
+  }
+  .final__toggle-1__input:checked + .final__toggle-1__button {
+    /* background-color: #00b3b4;
+    border:1px solid #00b3b4; */
+    background-color: var(--mainBurntSiena);
+    border:1px solid var(--mainBurntSiena);
+  }
+  .final__toggle-1__input:checked + .final__toggle-1__button:before {
+    left: 5px;
+    content: "on";
+    /* color: #00b3b4; */
+    color: var(--mainBurntSiena);
+  }
+  .vol-icon{
+    font-size: 2rem;
+    color: white;
+  }
+  .vol-cover{
+    cursor: pointer;
+  }
