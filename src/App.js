@@ -116,6 +116,9 @@ export default class App extends Component {
 
   //
   handleKeyPress = (e) => {
+    if (this.state.powerBtn === false) {
+      return
+    }
     //const keyPad = this.state.soundComponents.find(item => item.key === e.key);
     const keyPad = this.state.soundComponents.find((item => {
       return item.key === e.key.toUpperCase()
