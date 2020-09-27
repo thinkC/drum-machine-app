@@ -96,10 +96,10 @@ export default class App extends Component {
     console.log('clicked')
 
     console.log(this.state.powerBtn)
-    // if (this.state.powerBtn === false) {
-    //   return
-    // }
-    //else {
+    if (this.state.powerBtn === false) {
+      return
+    }
+
 
     console.log(key)
     console.log(document.getElementById(key))
