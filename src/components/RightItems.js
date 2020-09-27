@@ -15,7 +15,7 @@ export default function RightItems(props) {
             <div className="row">
                 <div className="btn-text">
                     <h4 className="text-center pt-2 text-white" id="display">
-                        {[...text][text.length - 1]}
+                        {text}
                     </h4>
                 </div>
             </div>

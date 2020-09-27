@@ -10,168 +10,138 @@ export default class App extends Component {
       soundComponents: [
         {
           id: 1,
-          text: 'saxophone',
-          letter: 'Q',
-          sound: 'http://cd.textfiles.com/cdaction/cdaction47b/BEAT2000/SOUNDS/SFX/SAX.WAV',
+          text: 'Heater-1',
+          key: 'Q',
+          sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3',
           dataKey: 81
         },
         {
           id: 2,
-          text: 'tom-tom',
-          letter: 'W',
-          sound: 'http://www.apo33.org/pub/puredata/APO/librairies_PD/recup/patches_obj/theLib/drum-machine/samples/TOM05L.WAV',
+          text: 'Heater-2',
+          key: 'W',
+          sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3',
           dataKey: 87
         },
         {
           id: 3,
-          text: 'hi-hat',
-          letter: 'E',
-          sound: 'http://dight310.byu.edu/media/audio/FreeLoops.com/4/4/Hi%20Hat%20Closing.wav-17754-Free-Loops.com.mp3',
+          text: 'Heater-3',
+          key: 'E',
+          sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3',
           dataKey: 69
         },
         {
           id: 4,
-          text: 'kenkeni',
-          letter: 'A',
-          sound: 'http://dight310.byu.edu/media/audio/FreeLoops.com/4/4/Kenkeni%20Hit.wav-18939-Free-Loops.com.mp3',
+          text: 'Heater-4',
+          key: 'A',
+          sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3',
           dataKey: 65
         },
         {
           id: 5,
-          text: 'guiro',
-          letter: 'S',
-          sound: 'http://stephane.brechet.free.fr/Sons/Wave/GUIRO.WAV',
+          text: 'Heater-6',
+          key: 'S',
+          sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3',
           dataKey: 83
         },
         {
           id: 6,
-          text: 'bass guitar',
-          letter: 'D',
-          sound: 'http://dight310.byu.edu/media/audio/FreeLoops.com/1/1/Bass%20Pick%20in%20A-19650-Free-Loops.com.mp3',
+          text: 'Dsc_Oh',
+          key: 'D',
+          sound: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3',
           dataKey: 68
         },
         {
           id: 7,
-          text: 'whistle',
-          letter: 'Z',
-          sound: 'http://www.modular-planet.de/instruments/whistle/Whistle.mp3',
+          text: 'Kick_n_Hat',
+          key: 'Z',
+          sound: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3',
           dataKey: 90
         },
         {
           id: 8,
-          text: 'cowbell',
-          letter: 'X',
-          sound: 'http://www.denhaku.com/r_box/rx11/cowbell_1.wav',
+          text: 'RP4_KICK_1',
+          key: 'X',
+          sound: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3',
           dataKey: 88
         },
         {
           id: 9,
-          text: 'harpsichord',
-          letter: 'C',
-          sound: 'http://www.takuichi.net/hobby/edu/sonic_wave/sound_analysis/sound_instruments/Harpsichord.wav',
+          text: 'Cev_H2',
+          key: 'C',
+          sound: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3',
           dataKey: 67
         },
 
       ],
       powerBtn: false,
-      newArr: []
+
+      currentSongText: ''
+
     }
 
+
+
+  // componentDidMount() {
+  //     window.addEventListener('keypress', this.handleKeyPress)
+  //   }
+  componentDidMount = () => {
+    console.log('mounted')
+    window.addEventListener('keypress', this.handleKeyPress)
+  }
 
 
   //checks that the poer button is on and cheks the id of teh button and the keyboard key
   //then plays a sound 
-  playDrum = (id, e) => {
+  playDrum = (key, e) => {
     console.log('clicked')
-    if (this.state.powerBtn === false) {
-      return
-    }
-    if (id === 'Q' || e.keyCode === 81) {
-      console.log('played');
-      console.log(document.getElementById('Q'))
-      document.getElementById('Q').play()
-      //console.log(document.getElementById('W'))
-      this.setState({
-        soundComponents: [...this.state.soundComponents,]
-      })
-      this.getClickedButton(id);
 
-    } else if (id === 'W' || e.keyCode === 87) {
-      console.log('played')
-      document.getElementById('W').play()
-      this.setState({
-        soundComponents: [...this.state.soundComponents,]
-      })
-      this.getClickedButton(id);
+    console.log(this.state.powerBtn)
+    // if (this.state.powerBtn === false) {
+    //   return
+    // }
+    //else {
 
-    } else if (id === 'E' || e.keyCode === 69) {
-      console.log('played')
-      document.getElementById('E').play();
-      this.setState({
-        soundComponents: [...this.state.soundComponents,]
-      })
-      this.getClickedButton(id);
+    console.log(key)
+    console.log(document.getElementById(key))
+    document.getElementById(key).play();
+    this.setState({
+      //soundComponents: [...this.state.soundComponents,]
+      currentSongText: this.getTextOfClickedButton(key)
+    })
 
-    } else if (id === 'A' || e.keyCode === 65) {
-      console.log('played')
-      document.getElementById('A').play();
-      this.setState({
-        soundComponents: [...this.state.soundComponents,]
-      })
-      this.getClickedButton(id);
 
-    } else if (id === 'S' || e.keyCode === 83) {
-      console.log('played')
-      document.getElementById('S').play()
-      this.setState({
-        soundComponents: [...this.state.soundComponents,]
-      })
-      this.getClickedButton(id);
-
-    } else if (id === 'D' || e.keyCode === 68) {
-      console.log('played')
-      document.getElementById('D').play();
-      this.setState({
-        soundComponents: [...this.state.soundComponents,]
-      })
-      this.getClickedButton(id);
-
-    } else if (id === 'Z' || e.keyCode === 90) {
-      console.log('played')
-      document.getElementById('Z').play();
-      this.setState({
-        soundComponents: [...this.state.soundComponents,]
-      })
-      this.getClickedButton(id);
-
-    } else if (id === 'X' || e.keyCode === 88) {
-      console.log('played')
-      document.getElementById('X').play()
-      this.setState({
-        soundComponents: [...this.state.soundComponents,]
-      })
-      this.getClickedButton(id);
-
-    } else if (id === 'C' || e.keyCode === 67) {
-      console.log('played')
-      document.getElementById('C').play();
-      this.setState({
-        soundComponents: [...this.state.soundComponents,]
-      })
-      this.getClickedButton(id);
-
-    }
 
   }
 
-  getClickedButton = (letter) => {
+
+  //
+  handleKeyPress = (e) => {
+    //const keyPad = this.state.soundComponents.find(item => item.key === e.key);
+    const keyPad = this.state.soundComponents.find((item => {
+      return item.key === e.key.toUpperCase()
+    }))
+
+    if (keyPad) {
+      document.getElementById(keyPad.key).play();
+      console.log(keyPad.key)
+      this.setState({
+        currentSongText: this.getTextOfClickedButton(keyPad.key)
+      })
+    }
+
+    console.log(keyPad)
+  }
+
+  //get id of button that is clicked
+  getTextOfClickedButton = (key) => {
     let tempArray = [...this.state.soundComponents]
     console.log(tempArray);
-    let buttonClicked = tempArray.find(item => item.letter === letter)
-    //console.log(buttonClicked);
+    let buttonClicked = tempArray.find(item => item.key === key)
+    console.log(buttonClicked);
     //console.log(buttonClicked['text']);
     const clickedText = buttonClicked['text'];
-    this.state.newArr.push(clickedText)
+    //this.state.newArr.push(clickedText)
+
     //console.log(letter);
     return clickedText;
   }
@@ -237,7 +207,7 @@ export default class App extends Component {
     //console.log(this.state)
     //console.log(this.state.soundComponents)
     return (
-      <div className="container">
+      <div id="drum-machine" className="container">
         <h1 className="text-center text-capitalize text-white mt-5">drum machine</h1>
         <div className="col-10 col-md-6 mx-auto box">
           <div className="row">
@@ -255,7 +225,8 @@ export default class App extends Component {
               <div className="col-md">
 
                 <RightItems
-                  text={this.state.newArr}
+                  //text={this.state.newArr}
+                  text={this.state.currentSongText}
                   togglePowerBtn={this.togglePowerBtn}
                   volumeControlHalf={this.volumeControlHalf}
                   volumeControlFull={this.volumeControlFull}
@@ -269,5 +240,8 @@ export default class App extends Component {
         </div>
       </div>
     )
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keypress', this.handleKeyPress)
   }
 }

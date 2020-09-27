@@ -8,7 +8,7 @@ export default class LeftItems extends Component {
         const { soundArray, playDrum } = this.props;
         const soundLength = soundArray.map((sound) => {
             return (
-                <button data-key={sound.dataKey} onKeyDown={(e) => { playDrum(sound.letter, e) }} onClick={(e) => { playDrum(sound.letter, e) }} key={sound.id} className="btn btn-key text-white">{sound.letter} <audio id={sound.letter} className="clip" src={sound.sound}></audio></button>
+                <button id={sound.text} className="drum-pad btn btn-key text-white" data-key={sound.dataKey} onClick={(e) => { playDrum(sound.key, e) }} key={sound.id} >{sound.key} <audio id={sound.key} className="clip" src={sound.sound}></audio></button>
             )
         })
 
