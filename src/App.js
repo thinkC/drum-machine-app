@@ -135,7 +135,7 @@ export default class App extends Component {
     console.log(keyPad)
   }
 
-  //get id of button that is clicked
+  //get text of clicked button
   getTextOfClickedButton = (key) => {
     let tempArray = [...this.state.soundComponents]
     console.log(tempArray);
